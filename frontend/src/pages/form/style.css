@@ -65,3 +65,21 @@
     margin-left: 39%;
     width: 60%;
 }
+#paragrafo {
+    font-size: 18px;
+    font-weight: 400;
+}
+#entrada {
+    width: 300px;
+    height: 30px;
+}
+#send {
+    height: 40px;
+    background-color: rgb(48, 48, 54);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+}
+#send:hover {
+    opacity: 80%;
+}

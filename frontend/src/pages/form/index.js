@@ -21,34 +21,14 @@ export default function Loja(){
             <section id="Conteudo_Form">
                 
                 <form id="Formulario">
-                    <label>
-                        Rua:
-                        <input id="Endereço" type="text" placeholder="Endereço:"/>
-                    </label>
-                    <label>
-                        Número:
-                        <input id="Numero" type="text" placeholder="Numero da Casa:"/>
-                    </label>
-                    <label>
-                        CEP:
-                        <input id="Cep" type="text" placeholder="CEP:"/>
-                    </label>
-                    <label>
-                        Vendedor:
-                        <input id="Vendedor" type="text" placeholder="Nome do Vendenor"/>
-                    </label>
-                    <label>
-                        Contato: 
-                        <input id="Contato" type="number" placeholder="EX: 11932223533"/>
-                    </label>
-                    <label>
-                        Descrição:
-                        <input id="Description" type="text" placeholder="EX: 100m³ 3quartos 2 banheiros"/>
-                    </label>
-                    <label>
-                        Carregar Imagem:
-                        <input id="Img" type='file' />
-                    </label>
+                    <p id="paragrafo">Rua:</p><input id="entrada" type="text" placeholder="Endereço:"/>
+                    <p id="paragrafo">Número:</p><input id="entrada" type="text" placeholder="Numero da Casa:"/>
+                    <p id="paragrafo">CEP:</p><input id="entrada" type="number" placeholder="CEP:"/>
+                    <p id="paragrafo">Vendedor:</p><input id="entrada" type="text" placeholder="Nome do Vendenor"/>
+                    <p id="paragrafo">Contato:</p><input id="entrada" type="number" placeholder="EX: 11932223533"/>
+                    <p id="paragrafo">Descrição:</p><input id="entrada" type="text" placeholder="EX: 100m³ 3quartos 2 banheiros"/>
+                    <p id="paragrafo">Carregar Imagem:</p><input id="entrada" type='file' />
+                    <input id="send" type="submit" value='send'></input>
 
                 </form>
 
