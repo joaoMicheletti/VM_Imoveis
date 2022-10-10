@@ -35,28 +35,30 @@
     height: 500px;
     width: 100%;
 }
-@media (max-width: 800px){
+@media (max-width: 1101px){
     #Conteudo_Home{
         margin-top: 290px;
+        justify-content: center;
     }
     #Img_Propaganda{
         display: none;
     }
 }
 #Img_Propaganda img{
-    margin-left: 40px;
+    margin-left: 50px;
     margin-top: 50px;
-    height: 280px;
+    height: 260px;
     border-radius: 35px;
 }
 #Txt_Propaganda {
     margin-top: -230px;
-    margin-left: 50%;
-    width: 50%;
+    margin-left: 40%;
+    width: 40%;
     font-size: 25px;
     line-height: 40px;
     color: rgb(255, 255, 255);
     font-weight: 900;
+    background-color: rgba(0, 0, 0, 0.315);
 }
 #Footer {
     margin-top: 150px;

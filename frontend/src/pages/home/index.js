@@ -37,10 +37,7 @@ export default function Home(){
                     <RiInstagramFill id="imgm"/> Intagram
                 </div>
                 <div id="Direitos_altorais">
-                    <p>Disney+ é um serviço pago, baseado em assinatura e sujeito a termos e condições.
-                        O serviço Disney+ é comercializado por The Walt Disney Company (Brasil) Ltda.
-                        World Trade Center, Av. Das Nações Unidas, 12.551, 12.555, 12.559, Piso 10,
-                        São Paulo/SP - CEP 04578-903, Brasil e CNPJ/M 73.042.962/0004-20</p>
+                    <p>VM_Imoveis é um serviço gratuito, porem mantemos a politica de manter todos os diretos reservadso...</p>
                 </div>
 
             </footer>
