@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import { Link } from "react-router-dom";
+import Api from '../services/api';
 import './style.css';
  
 import {AiFillFacebook} from 'react-icons/ai';
@@ -25,6 +26,9 @@ export default function Loja(){
     } 
     console.log(Data);
 
+    const Create = async (e) => {
+        const Send = await Api.post('', Data);
+    }
     return(
         <div id="Container_Loja">
 

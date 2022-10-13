@@ -35,6 +35,23 @@
     height: 500px;
     width: 100%;
 }
+
+#Img_Propaganda img{
+    margin-top: 100px;
+    margin-left: 100px;
+    height: 300px;
+    border-radius: 35px;
+}
+#Txt_Propaganda {
+    margin-top: -230px;
+    margin-left: 50%;
+    width: 600px;
+    font-size: 25px;
+    line-height: 40px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    background-color: rgba(0, 0, 0, 0.315);
+}
 @media (max-width: 1101px){
     #Conteudo_Home{
         margin-top: 290px;
@@ -43,22 +60,10 @@
     #Img_Propaganda{
         display: none;
     }
-}
-#Img_Propaganda img{
-    margin-left: 50px;
-    margin-top: 50px;
-    height: 260px;
-    border-radius: 35px;
-}
-#Txt_Propaganda {
-    margin-top: -230px;
-    margin-left: 40%;
-    width: 40%;
-    font-size: 25px;
-    line-height: 40px;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    background-color: rgba(0, 0, 0, 0.315);
+    #Txt_Propaganda {
+        margin-left: 15%;
+
+    }
 }
 #Footer {
     margin-top: 150px;

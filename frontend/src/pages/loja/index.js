@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Api from '../services/api';
 import './style.css';
 import AP from '../asset/ap.jpg'; 
 import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
+import api from "../services/api";
 
+//finction que ira buscar os dados do backend!
 export default function Loja(){
+    const response = async (e)=>{
+        const Data = await api.get("");
+    }
     return(
         <div id="Container_Loja">
 
