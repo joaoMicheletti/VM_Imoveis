@@ -1,6 +1,10 @@
+const connection = require("../database/connection");
 
 module.exports = {
     async Buscar(request, response) {
-        return response.json(console.log('buscando ...'));
+        const data = await connection('imoveis').select('*');
+
+
+        return response.json(data);
     }
 }

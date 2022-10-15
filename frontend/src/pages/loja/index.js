@@ -1,17 +1,27 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Api from '../services/api';
 import './style.css';
 import AP from '../asset/ap.jpg'; 
 import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
-import api from "../services/api";
 
 //finction que ira buscar os dados do backend!
-export default function Loja(){
-    const response = async (e)=>{
-        const Data = await api.get("");
-    }
+function Loja() {
+    const [itens, setItens] = useState([]);
+    useEffect(() => {
+        Api.get('/buscar')
+        .then((Response) => {
+            setItens(Response.data)
+            
+        })
+        .catch(() => {
+            console.log('erro')
+        })
+    }, [])
+    console.log(itens.rua);
+
+
     return(
         <div id="Container_Loja">
 
@@ -21,21 +31,27 @@ export default function Loja(){
                 <nav id="Navigation">
                     <Link id="LK" to='/' >Home</Link>
                     <Link id="LK" to='/form'>Vender</Link>
-                    
+                        
                 </nav>
             </header> 
             <section id="Conteudo_Loja">
-                <div id="Item_Loja">
-                    <img id="Img_Item" src={AP} alt="Item_loja"/>
-                    <ul id="Description_Item">
-                        <p>Rua: {}</p>
-                        <p>Nº: {}</p>
-                        <p>CEP: {}</p>
-                        <p>Vendedor: {}</p>
-                        <p>Contato: {}</p>
+                {itens.map((iten, key) =>{
+                    return(
+                        <div id="Item_Loja">
+                            <img id="Img_Item" src={AP} alt="Item_loja"/>
+                            <ul id="Description_Item">
+                                <p>Rua: {iten.rua}</p>
+                                <p>Nº: {iten.casa_numero}</p>
+                                <p>CEP: {iten.cep}</p>
+                                <p>Vendedor: {iten.vendedor}</p>
+                                <p>Contato: {iten.phone}</p>
+                                <p>Descrição: {iten.description}</p>
                     </ul>
 
                 </div>
+                    )
+                })}
+                
             </section>
             <footer id="Footer">
                 <div id="Img_Footer">
@@ -45,9 +61,10 @@ export default function Loja(){
                 <div id="Direitos_altorais">
                     <p>VM_Imoveis é um serviço gratuito, porem mantemos a politica de manter todos os diretos reservadso...</p>
                 </div>
-
             </footer>
         </div>
-        
+            
     );
 }
+
+export default Loja;

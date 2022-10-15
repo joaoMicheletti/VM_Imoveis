@@ -28,17 +28,19 @@
     padding: 30px;
 }
 #Conteudo_Loja {
-    background-image: url('../asset//backgroun_home.jpg');
-    background-size: cover;
+    display: flow-root;
+    flex-direction: row;
     margin-top: 50px;
-    height: 500px;
-    width: 100%;
+    margin-left: 5%;
+    height: auto;
+    width: 90%;
 }
 #Item_Loja{
     margin: auto;
     background-color: rgba(39, 38, 38, 0.733);
-    width: 350px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
+    margin-bottom: 50px;
 }
 #Item_Loja #Img_Item{
     width: 100%;
