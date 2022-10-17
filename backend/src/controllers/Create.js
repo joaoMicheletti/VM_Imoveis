@@ -2,11 +2,21 @@ const connection = require('../database/connection');
 
 module.exports = {
     async Create(request, response) {
-        const { cep, rua, casa_numero, vendedor, phone, description } = request.body;
+        const { cep, rua, casa_numero, vendedor, phone, description, image } = request.body;
+
+        const Data = {
+            rua,
+            casa_numero,
+            cep,
+            vendedor,
+            phone,
+            description,
+            image
+        };
         
         
     
-        await connection('imoveis').insert({
+       /* await connection('imoveis').insert({
         
             cep,
             rua,
@@ -14,8 +24,8 @@ module.exports = {
             vendedor,
             phone,
             description
-        })
+        })*/
 
-        return response.json({vendedor});
+        return console.log(Data);
      }
 };

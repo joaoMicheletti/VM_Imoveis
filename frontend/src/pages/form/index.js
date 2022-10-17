@@ -7,27 +7,31 @@ import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
 
 export default function Loja(){
-    const [Rua, SetRua] = useState('');
-    const [Numero, SetNumero] = useState('');
-    const [Cep, SetCep] = useState('');
-    const [Vendedor, SetVendedor] = useState('');
-    const [Contato, SetContato] = useState('');
-    const [Description, SetDescription] = useState('');
-    const [Image, SetImage] = useState('');
+    const [rua, SetRua] = useState('');
+    const [casa_numero, SetNumero] = useState('');
+    const [cep, SetCep] = useState('');
+    const [vendedor, SetVendedor] = useState('');
+    const [phone, setPhone] = useState('');
+    const [description, SetDescription] = useState('');
+    const [image, SetImage] = useState('');
+    //objeto img
+    const formData = new FormData();
+    formData.append('image', Image);
     
     const Data = {
-        Rua,
-        Numero,
-        Cep,
-        Vendedor,
-        Contato,
-        Description,
-        Image
-    } 
-    console.log(Data);
+        rua,
+        casa_numero,
+        cep,
+        vendedor,
+        phone,
+        description,
+        image,
+        formData
+    };
 
     const Create = async (e) => {
-        const Send = await Api.post('', Data);
+        e.preventDefault();
+        await Api.post('/create', Data);
     }
     return(
         <div id="Container_Loja">
@@ -43,7 +47,7 @@ export default function Loja(){
             </header> 
             <section id="Conteudo_Form">
                 
-                <form id="Formulario">
+                <form id="Formulario" onSubmit={Create} enctype="multipart/form-data">
                     <p id="paragrafo">Rua:</p>
                     <input id="entrada"
                      type="text" 
@@ -72,7 +76,7 @@ export default function Loja(){
                     <input id="entrada" 
                     type="number" 
                     placeholder="EX: 11932223533"
-                    onCanPlay={(e) => SetContato(e.target.value)}/>
+                    onChange={(e) => setPhone(e.target.value)}/>
 
                     <p id="paragrafo">Descrição:</p>
                     <input id="entrada" 
@@ -83,7 +87,7 @@ export default function Loja(){
                     <p id="paragrafo">Carregar Imagem:</p>
                     <input id="entrada" 
                     type='file' 
-                    onChange={(e) => SetImage(e.target.value)}/>
+                    onChange={(e) => SetImage(e.target.files[0])}/>
                     <input id="send" 
                     type="submit" 
                     value='send'></input>
