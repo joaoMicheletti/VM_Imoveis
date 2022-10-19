@@ -14,24 +14,38 @@ export default function Loja(){
     const [phone, setPhone] = useState('');
     const [description, SetDescription] = useState('');
     const [image, SetImage] = useState('');
-    //objeto img
-    const formData = new FormData();
-    formData.append('image', Image);
-    
+
+    const formdata = new FormData();
+    formdata.append('image', image);
+
     const Data = {
         rua,
         casa_numero,
         cep,
         vendedor,
         phone,
-        description,
-        image,
-        formData
+        description
     };
+
+    const headers = {
+        'headers': {
+            'Content-Type': 'aplication/json'
+        }
+    }
+    
+    
 
     const Create = async (e) => {
         e.preventDefault();
-        await Api.post('/create', Data);
+        console.log(Data);
+        await Api.post('/create', Data, headers)
+        .then(alert('imovel cadastrado')).catch();
+    };
+
+    const upImg = async (e) => {
+        e.preventDefault();
+        console.log(formdata);
+        await Api.post('/img', formdata, headers);
     }
     return(
         <div id="Container_Loja">
@@ -47,7 +61,7 @@ export default function Loja(){
             </header> 
             <section id="Conteudo_Form">
                 
-                <form id="Formulario" onSubmit={Create} enctype="multipart/form-data">
+                <form id="Formulario" onSubmit={Create} >
                     <p id="paragrafo">Rua:</p>
                     <input id="entrada"
                      type="text" 
@@ -83,16 +97,23 @@ export default function Loja(){
                     type="text" 
                     placeholder="EX: 100m³ 3quartos 2 banheiros"
                     onChange={(e) => SetDescription(e.target.value)}/>
-                    
-                    <p id="paragrafo">Carregar Imagem:</p>
-                    <input id="entrada" 
-                    type='file' 
-                    onChange={(e) => SetImage(e.target.files[0])}/>
                     <input id="send" 
-                    type="submit" 
-                    value='send'></input>
-
+                        type="submit" 
+                        value='send'>
+                    </input>
                 </form>
+                <form id='form-img' onSubmit={upImg}>
+                    <h3>Carregar imagem</h3>
+                    
+                    <input id="img" 
+                        type='file' 
+                        onChange={(e) => SetImage(e.target.files[0])}/>
+                        <input id="send-img" 
+                        type="submit" 
+                        value='enviar imagem'>
+                    </input>
+                </form>
+                
 
             </section>
             <footer id="Footer">
