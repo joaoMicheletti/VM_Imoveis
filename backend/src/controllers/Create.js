@@ -8,10 +8,11 @@ module.exports = {
             rua,
             casa_numero,
             cep,
-            vendedor,
+            vendedor, 
             phone,
             description
         };
+        console.log(Data);
         
          await connection('imoveis').insert({
             cep,
@@ -20,8 +21,9 @@ module.exports = {
             vendedor,
             phone,
             description
-        })
 
-        return console.log(Data.casa_numero);
+        });
+        
+        return response.json('cadastrado!');
      }
 };

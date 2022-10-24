@@ -36,9 +36,11 @@ function Loja() {
             </header> 
             <section id="Conteudo_Loja">
                 {itens.map((iten, key) =>{
+                    const link = 'http://localhost:2222/file/' + iten.image;                    
+                    
                     return(
                         <div id="Item_Loja">
-                            <img id="Img_Item" src={AP} alt="Item_loja"/>
+                            <img id="Img_Item" href={link} alt="Item_loja"/>
                             <ul id="Description_Item">
                                 <p>Rua: {iten.rua}</p>
                                 <p>Nº: {iten.casa_numero}</p>

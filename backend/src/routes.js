@@ -12,8 +12,9 @@ const Upimg = require('./controllers/img.js');
 routes.get('/buscar', Search.Buscar);
 // rota para criar itens no banco de dados
 routes.post('/create', multer(multeConfig).single("image"), Create.Create);
-
+//upload img
 routes.post('/img', multer(multeConfig).single("image"), Upimg.Image);
+
 
 
 

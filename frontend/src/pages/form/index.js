@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Api from '../services/api';
 import './style.css';
  
@@ -7,6 +7,8 @@ import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
 
 export default function Loja(){
+    const history = useNavigate();
+    
     const [rua, SetRua] = useState('');
     const [casa_numero, SetNumero] = useState('');
     const [cep, SetCep] = useState('');
@@ -29,7 +31,8 @@ export default function Loja(){
 
     const headers = {
         'headers': {
-            'Content-Type': 'aplication/json'
+            'Content-Type': 'aplication/json',
+            'image': cep
         }
     }
     
@@ -37,16 +40,36 @@ export default function Loja(){
 
     const Create = async (e) => {
         e.preventDefault();
-        console.log(Data);
-        await Api.post('/create', Data, headers)
-        .then(alert('imovel cadastrado')).catch();
+        
+        const resposta_backend = await Api.post('/create', Data);
+
+        if (resposta_backend.data === 'cadastrado!') {
+           alert('Dados cadastrados!');
+        } else {
+            alert('ErRoR: erro no cadastro, tente mais tarde');
+        };
     };
 
-    const upImg = async (e) => {
+    async function upImg(e){
         e.preventDefault();
-        console.log(formdata);
-        await Api.post('/img', formdata, headers);
-    }
+        if (image === '') {
+            alert('ESCOLHA UMA IMAGEM');
+        }else {
+            const responsta_img =  await Api.post('/img', formdata, headers);
+        
+            if (responsta_img.data === '' ){
+                alert('tipo de arquivo não suportado!');
+        }   else {
+                alert('img cadastrada!');
+                history('/loja');
+            };            
+        };
+        
+
+
+    }; 
+
+
     return(
         <div id="Container_Loja">
 
@@ -61,7 +84,9 @@ export default function Loja(){
             </header> 
             <section id="Conteudo_Form">
                 
-                <form id="Formulario" onSubmit={Create} >
+                <form id="Formulario">
+                    <h3>"*ENVIE PRIMEIRO OS DADOS, DEPOIS A IMAGEM!!!"</h3>
+                    <br/>
                     <p id="paragrafo">Rua:</p>
                     <input id="entrada"
                      type="text" 
@@ -97,22 +122,33 @@ export default function Loja(){
                     type="text" 
                     placeholder="EX: 100m³ 3quartos 2 banheiros"
                     onChange={(e) => SetDescription(e.target.value)}/>
+
+                    
+
                     <input id="send" 
                         type="submit" 
-                        value='send'>
+                        value='1° ENVIAR DADOS'
+                        onClick={Create}
+                        >
                     </input>
-                </form>
-                <form id='form-img' onSubmit={upImg}>
+
+                    <form id='form-img' >
                     <h3>Carregar imagem</h3>
                     
                     <input id="img" 
                         type='file' 
-                        onChange={(e) => SetImage(e.target.files[0])}/>
-                        <input id="send-img" 
+                        onChange={(e) => SetImage(e.target.files[0])}
+                        />
+                        <input id="send" 
                         type="submit" 
-                        value='enviar imagem'>
+                        value='2° ENVIAR IMAGEM'
+                        onClick={upImg}
+                        >
                     </input>
+                        
+                    </form>
                 </form>
+                
                 
 
             </section>
