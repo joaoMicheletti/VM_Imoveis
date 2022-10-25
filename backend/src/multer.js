@@ -29,6 +29,7 @@ module.exports = {
             'image/jpeg',
             'image/gif',
             'image/jpg',
+            'image/png',
         ];
 
         if (allowerdMimes.includes(file.mimetype)) {

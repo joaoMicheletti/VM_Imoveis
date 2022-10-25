@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Api from '../services/api';
 import './style.css';
-import AP from '../asset/ap.jpg'; 
+//import AP from '../asset/ap.jpg'; 
 import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
 
@@ -13,13 +13,14 @@ function Loja() {
         Api.get('/buscar')
         .then((Response) => {
             setItens(Response.data)
-            
+                    
         })
         .catch(() => {
             console.log('erro')
         })
     }, [])
-    console.log(itens.rua);
+    console.log(itens)
+    
 
 
     return(
@@ -36,22 +37,22 @@ function Loja() {
             </header> 
             <section id="Conteudo_Loja">
                 {itens.map((iten, key) =>{
-                    const link = 'http://localhost:2222/file/' + iten.image;                    
+                    const url = 'http://localhost:2222/file/';
+                                              
                     
                     return(
+                        
                         <div id="Item_Loja">
-                            <img id="Img_Item" href={link} alt="Item_loja"/>
-                            <ul id="Description_Item">
+                            <img id="Img_Item" src={url + iten.image} alt="Item_loja"/>
+                            <ul key={iten.id} id="Description_Item">
                                 <p>Rua: {iten.rua}</p>
                                 <p>Nº: {iten.casa_numero}</p>
                                 <p>CEP: {iten.cep}</p>
                                 <p>Vendedor: {iten.vendedor}</p>
                                 <p>Contato: {iten.phone}</p>
                                 <p>Descrição: {iten.description}</p>
-                    </ul>
-
-                </div>
-                    )
+                            </ul>
+                        </div>)
                 })}
                 
             </section>
