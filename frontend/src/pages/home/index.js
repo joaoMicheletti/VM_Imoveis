@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './style.css';
-import AP from '../asset/ap.jpg'; 
+import Prop_Home from '../asset/prop_home.jpg'; 
 import {AiFillFacebook} from 'react-icons/ai';
 import {RiInstagramFill} from 'react-icons/ri';
 
@@ -21,13 +21,15 @@ export default function Home(){
             </header> 
             <section id="Conteudo_Home">
                 <div id="Img_Propaganda">
-                    <img src={AP} alt="IMG PROPAGANDA"/>
+                    <img src={Prop_Home} alt="IMG PROPAGANDA"/>
                 </div>
                 <div id="Txt_Propaganda">
-                    <p>A maior e mais conhecida imobiliaria do pais.
-                        Não perca tempo traga já o seu imovel para 
-                        nossa plataforma e se surpreenda com a
-                        rapides que iremos te ajudar a vender o seu imovel!
+                    <p>
+                        <h1>Penssando em comprar ou vender o seu imovel?</h1>
+                        Agora é a hora !.
+                        VM_Imoveis a 25 anos abrindo portas para novas historias.
+                        ajudaremos você a vender seu imavel, ou conquistar a tão sonhada casa própria!!!
+
                     </p>
                 </div>
             </section>

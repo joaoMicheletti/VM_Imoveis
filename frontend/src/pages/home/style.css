@@ -4,16 +4,22 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+body {
+    background-color: rgb(165, 202, 202);
+}
 #Menu {
     height: 70px;
 }
 #Menu p {
+    cursor: pointer;
     margin-top: 20px;
     margin-left: 25px;
     font-size: 32px;
     font-weight: 600;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#Menu p:hover{
+    color: rgb(82, 79, 79);
 }
 #Navigation {
     height: 30px;
@@ -28,33 +34,36 @@
     text-decoration: none;
     padding: 30px;
 }
+#Navigation #LK:hover{
+    font-size: 35px;
+    color: rgb(82, 79, 79);
+}
 #Conteudo_Home {
-    background-image: url('../asset//backgroun_home.jpg');
-    background-size: cover;
+    display: flex;
     margin-top: 50px;
     height: 500px;
     width: 100%;
+    margin-bottom: 150px;    
 }
 
-#Img_Propaganda img{
-    margin-top: 100px;
-    margin-left: 100px;
-    height: 300px;
-    border-radius: 35px;
+#Img_Propaganda img{    
+    height: 400px;
+    width: 300px;
+    margin-top: 50px;
+    margin-left: 45%;  
 }
 #Txt_Propaganda {
-    margin-top: -230px;
-    margin-left: 50%;
-    width: 600px;
-    font-size: 25px;
-    line-height: 40px;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    background-color: rgba(0, 0, 0, 0.315);
+    font-size: 28px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(7, 7, 7);
+    margin-top: 100px;
+    margin-left: 20%;
+    width: 50%;
+    height: 300px;
 }
 @media (max-width: 1101px){
     #Conteudo_Home{
-        margin-top: 290px;
         justify-content: center;
     }
     #Img_Propaganda{

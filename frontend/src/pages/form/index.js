@@ -95,7 +95,8 @@ export default function Loja(){
 
                     <p id="paragrafo">Número:</p>
                     <input id="entrada" 
-                    type="text" 
+                    type="number"
+                    maxLength={5} 
                     placeholder="Numero da Casa:"
                     onChange={(e) => SetNumero(e.target.value)}/>
 
@@ -103,24 +104,28 @@ export default function Loja(){
                     <input id="entrada" 
                     type="number" 
                     placeholder="CEP:"
+                    maxLength={7}
                     onChange={(e) => SetCep(e.target.value)}/>
 
                     <p id="paragrafo">Vendedor:</p>
                     <input id="entrada" 
                     type="text" 
                     placeholder="Nome do Vendenor"
+                    maxLength={60}
                     onChange={(e) => SetVendedor(e.target.value)}/>
 
                     <p id="paragrafo">Contato:</p>
                     <input id="entrada" 
                     type="number" 
                     placeholder="EX: 11932223533"
+                    maxLength={10}
                     onChange={(e) => setPhone(e.target.value)}/>
 
                     <p id="paragrafo">Descrição:</p>
                     <input id="entrada" 
                     type="text" 
                     placeholder="EX: 100m³ 3quartos 2 banheiros"
+                    maxLength={120}
                     onChange={(e) => SetDescription(e.target.value)}/>
 
                     

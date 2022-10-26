@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#Menu p:hover{
+    color: rgb(82, 79, 79);
+}
 
 #Menu {
     height: 70px;
@@ -39,11 +42,12 @@
     margin: auto;
     background-color: rgba(39, 38, 38, 0.733);
     width: 500px;
-    height: 500px;
+    height: auto;
     margin-bottom: 50px;
 }
 #Item_Loja #Img_Item{
-    width: 100%;
+    width: 500px;
+    height: 300px;
 }
 #Description_Item {
     margin-left: 5px;
