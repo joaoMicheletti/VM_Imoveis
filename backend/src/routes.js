@@ -8,6 +8,8 @@ const multeConfig = require('./multer');
 const Search = require('./controllers/Search.js');
 const Create = require('./controllers/Create.js');
 const Upimg = require('./controllers/img.js');
+
+
 //rota para buscara os itens no banco de dados.
 routes.get('/buscar', Search.Buscar);
 // rota para criar itens no banco de dados

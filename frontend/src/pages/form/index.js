@@ -90,7 +90,7 @@ export default function Loja(){
                     <p id="paragrafo">Rua:</p>
                     <input id="entrada"
                      type="text" 
-                     placeholder="Endereço:"
+                     placeholder="Rua:"
                      onChange={(e) => SetRua(e.target.value)}/>
 
                     <p id="paragrafo">Número:</p>
