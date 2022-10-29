@@ -11,6 +11,7 @@ export default function Rota(){
                 <Route path="/" element={<Home/>}/>
                 <Route path="form" element={<Form/>}/>
                 <Route path="loja" element={<Loja/>}/>
+                <Route path='*' element={<h1>perdido no espaço! ERRO 404</h1>}/>
             </Routes>
         </Router>
     );
